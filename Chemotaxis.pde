@@ -1,15 +1,21 @@
-Bacteria bob;  
+Bacteria [] bacteria;  
  void setup()   
  {     
  	size(500,500);
- 	frameRate(30);
- 	bob = new Bacteria(250,250);
+ 	frameRate(100);
+ 	bacteria = new Bacteria[5];
+ 	for (int i = 0; i < bacteria.length;i++){
+ 		bacteria[i] = new Bacteria(250,250);
+ 	}
  }   
  void draw()   
  {    
  	background(0);
- 	bob.move();
- 	bob.show();  
+ 	for (int i = 0; i < bacteria.length;i++){
+ 		bacteria[i].move();
+ 		bacteria[i].show();  
+ 	}
+
  }  
 
  class Bacteria    
@@ -17,14 +23,14 @@ Bacteria bob;
   	int myX, myY, col;
  	Bacteria(int x, int y) //constructor 
  	{
- 		myX = x;
- 		myY = y;
+ 		myX = (int)(Math.random()*501);
+ 		myY = 0;
  	}
  	void move()
  	{
- 		myX = myX + (int)(Math.random()*20)-10;
- 		myY = myY + (int)(Math.random()*20)-10;
-
+ 		//myX = myX + (int)(Math.random()*3)-1;
+ 		//myY = myY + (int)(Math.random()*3)-1;
+ 		myY++;
  	}
  	void show()
  	{
