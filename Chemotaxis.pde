@@ -2,7 +2,7 @@ Bacteria [] bacteria;
  void setup()   
  {     
  	size(500,500);
- 	frameRate(100);
+ 	frameRate(10);
  	bacteria = new Bacteria[5];
  	for (int i = 0; i < bacteria.length;i++){
  		bacteria[i] = new Bacteria(250,250);
@@ -15,6 +15,7 @@ Bacteria [] bacteria;
  		bacteria[i].move();
  		bacteria[i].show();  
  	}
+ 	
 
  }  
 
@@ -24,13 +25,20 @@ Bacteria [] bacteria;
  	Bacteria(int x, int y) //constructor 
  	{
  		myX = (int)(Math.random()*501);
- 		myY = 0;
+ 		myY = (int)(Math.random()*501);
  	}
  	void move()
  	{
- 		//myX = myX + (int)(Math.random()*3)-1;
- 		//myY = myY + (int)(Math.random()*3)-1;
- 		myY++;
+ 		int direction = (int)(Math.random()*4);
+ 		if (direction == 0){
+ 			myX = myX + 25;
+ 		}else if (direction == 1){
+ 			myX = myX - 25;
+ 		}else if (direction == 2){
+ 			myY = myY + 25;
+ 		}else{
+ 			myY = myY - 25;
+ 		}
  	}
  	void show()
  	{
